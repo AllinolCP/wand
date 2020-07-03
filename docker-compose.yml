@@ -86,7 +86,7 @@ services:
     links:
       - db:db
       - redis:redis
-    entrypoint: ["dockerize", "-wait", "tcp://redis:6379", "./wait-for-postgres.sh", "db", "python", "bootstrap.py", "login"]
+    entrypoint: ["dockerize", "-wait", "tcp://redis:6379","python", "bootstrap.py", "login"]
     command: ["--port", "${GAME_LOGIN_PORT}",
               "--redis-address", "redis", 
               "--database-address", "db", 
